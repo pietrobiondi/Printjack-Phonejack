@@ -2,7 +2,7 @@ from scapy.all import *
 from netfilterqueue import NetfilterQueue
 from cryptography.fernet import Fernet
 import socket
-queueId = 2
+
 
 def encrypt(packet):
  cipher_suite = Fernet(key)
@@ -13,8 +13,8 @@ def encrypt(packet):
  sk.sendto(MESSAGE, (pkt[IP].dst, pkt[UDP].dport))
  packet.drop()
  
-nfqueue = NetfilterQueue()
-nfqueue.bind(2, encrypt)
+nfqueueenc = NetfilterQueue()
+nfqueueenc.bind(2, encrypt)
 
 
 def decrypt(packet):
@@ -26,5 +26,5 @@ def decrypt(packet):
  sk.sendto(MESSAGE,(pkt[IP].dst, pkt[UDP].dport))
  packet.drop()
  
-nfqueue = NetfilterQueue()
-nfqueue.bind(3, decrypt)
+nfqueuedec = NetfilterQueue()
+nfqueuedec.bind(3, decrypt)
