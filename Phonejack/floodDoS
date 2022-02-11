@@ -1,0 +1,40 @@
+import subprocess
+import random
+import time
+import threading
+from multiprocessing import Pool
+
+
+def send_packets(threadName ,IP , MAC):
+	print threadName+" To"+str(IP)
+	subprocess.call(["tcprewrite","--dstipmap=192.168.1.4:"+str(IP),"--enet-dmac="+str(MAC),"--dlt=enet","--fixcsum","--infile=papparella.pcap","--outfile=fixedinvite.pcap"])
+        subprocess.call(["tcpreplay", "--intf1=eth0","--loop=50000","--loopdelay-ms=2","fixedinvite.pcap"])
+
+
+
+
+if __name__ == "__main__":
+	# Number of random numbers to add
+	threads = 255   # Number of threads to create
+	# Create a list of jobs and then iterate through
+	# the number of threads appending each thread to
+	# the job list 
+	jobs = []
+	x=1
+	for i in range(0, threads):
+        	out_list = list()
+
+        	IP="192.168.1."+str(x)
+		MAC="00:0E:08:D6:CD:6"+str(x)
+		Name="Th-"+str(x)
+        	thread = threading.Thread(target=send_packets(Name,IP,MAC))
+        	jobs.append(thread)
+		x=x+1
+
+    # Start the threads (i.e. calculate the random number lists)
+	for j in jobs:
+	        j.start()
+
+    # Ensure all of the threads have finished
+	#for j in jobs:
+		#j.join()
