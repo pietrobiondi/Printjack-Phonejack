@@ -1,6 +1,5 @@
 import nmap 
 
-
 def scanNetwork(network):
     hosts = []
     nm = nmap.PortScanner()
