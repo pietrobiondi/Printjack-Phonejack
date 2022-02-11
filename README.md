@@ -1,2 +1,2 @@
 # Printjack-Phonejack
-This respository contains the source code of the printjack and phonejack attacks.
+This repository contains the source code of the printjack and phonejack attacks.
