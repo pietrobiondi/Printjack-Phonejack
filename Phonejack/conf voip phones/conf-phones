@@ -1,0 +1,19 @@
+Connect the voip phones to a ROUTER WITH DHCP
+
+Open browser and go to phone settings via web interface eg. 192.168.1.101
+
+At the top right select "admin login", then "advanced" (at the bottom of the page)
+
+Ext 1 --> Proxy, mettere indirizzo ip del server asterisk (ovvero questa vm)
+Ext 1 --> Proxy, put IP address of the asterisk server (i.e. this vm . e.g. 192.168.1.103)
+
+Ext 1 section -> Subscriber information:
+Display Name: 6001
+Password: 1234
+Auth ID: 6001
+Used ID: 6001
+Use auth id : No
+Proxy: IP of the asterisk server
+Outbound proxy : same as above
+
+Same thing for other phone changing for the value from 6001 to 600X
