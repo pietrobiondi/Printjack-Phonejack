@@ -11,7 +11,9 @@ Finally, we provide the iptables.sh file which provides the IPtables configurati
 
 
 PRINTJACK:
+
 DoS
+
 1) Connect the device to the network where the network printer is present and change the IPs.txt file with the IP address of the printer.
 
 2) Edit the bot.txt file with the text you want to print during the attack.
