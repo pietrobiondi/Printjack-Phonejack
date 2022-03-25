@@ -19,7 +19,9 @@ DoS
 
 
 PHONEJACK:
+
 DoS
+
 0) N.B In the VM that we provide, the asterisk server and the configuration of voip phones (step 1 and 2 ) is already done.
 1) Read "README-Asterisk.txt" and follow instructions.
 2) After that, open the directory "conf voip phones" and read "conf-phones" and follow instructions.
